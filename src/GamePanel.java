@@ -31,7 +31,7 @@ public class GamePanel extends JPanel implements ActionListener{
     public void play() {
         addapple();
         running = true;
-        timer = new Timer(60, this);
+        timer = new Timer(90, this);
         timer.start();
     }
     @Override
@@ -96,12 +96,17 @@ public class GamePanel extends JPanel implements ActionListener{
             visual.setColor(new Color(255, 0, 0));
             visual.fillOval(appleX, appleY, EL_SIZE, EL_SIZE);
 
-            visual.setColor(Color.YELLOW);
+            visual.setColor(new Color(0x7602C0));
             visual.fillRect(x[0], y[0], EL_SIZE, EL_SIZE);
 
             for (int i = 1; i < length; i++) {
-                visual.setColor(new Color(122, 32, 178));
-                visual.fillRect(x[i], y[i], EL_SIZE, EL_SIZE);
+                if(i%2==0) {
+                    visual.setColor(new Color(255, 0, 242));
+                    visual.fillRect(x[i], y[i], EL_SIZE, EL_SIZE);
+                }else {
+                    visual.setColor(new Color(255, 0, 106));
+                    visual.fillRect(x[i], y[i], EL_SIZE, EL_SIZE);
+                }
             }
 
             visual.setColor(Color.white);
